@@ -11,11 +11,5 @@ use Generated\Shared\Transfer\RuleEngineClauseTransfer;
 
 interface PriceProductMerchantCommissionConnectorToRuleEngineFacadeInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\RuleEngineClauseTransfer $ruleEngineClauseTransfer
-     * @param mixed $comparedValue
-     *
-     * @return bool
-     */
     public function compare(RuleEngineClauseTransfer $ruleEngineClauseTransfer, mixed $comparedValue): bool;
 }

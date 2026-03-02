@@ -24,12 +24,6 @@ class PriceProductMerchantCommissionConnectorToRuleEngineFacadeBridge implements
         $this->ruleEngineFacade = $ruleEngineFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\RuleEngineClauseTransfer $ruleEngineClauseTransfer
-     * @param mixed $comparedValue
-     *
-     * @return bool
-     */
     public function compare(RuleEngineClauseTransfer $ruleEngineClauseTransfer, mixed $comparedValue): bool
     {
         return $this->ruleEngineFacade->compare($ruleEngineClauseTransfer, $comparedValue);

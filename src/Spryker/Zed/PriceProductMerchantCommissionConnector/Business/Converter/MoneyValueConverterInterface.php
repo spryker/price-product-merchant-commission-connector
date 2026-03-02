@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\RuleEngineClauseTransfer;
 
 interface MoneyValueConverterInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\RuleEngineClauseTransfer $ruleEngineClauseTransfer
-     *
-     * @return \Generated\Shared\Transfer\RuleEngineClauseTransfer
-     */
     public function convertDecimalToCent(RuleEngineClauseTransfer $ruleEngineClauseTransfer): RuleEngineClauseTransfer;
 }

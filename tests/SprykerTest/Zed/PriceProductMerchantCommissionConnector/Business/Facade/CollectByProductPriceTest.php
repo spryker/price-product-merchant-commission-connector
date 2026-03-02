@@ -48,9 +48,6 @@ class CollectByProductPriceTest extends Unit
      */
     protected PriceProductMerchantCommissionConnectorBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function setUp(): void
     {
         parent::setUp();
@@ -64,9 +61,6 @@ class CollectByProductPriceTest extends Unit
         ]);
     }
 
-    /**
-     * @return void
-     */
     public function testShouldReturnAllItemsSatisfyingProvidedClause(): void
     {
         // Arrange
@@ -103,9 +97,6 @@ class CollectByProductPriceTest extends Unit
         $this->assertSame(10000, $collectedItems[0]->getSumPrice());
     }
 
-    /**
-     * @return void
-     */
     public function testShouldReturnEmptyCollectionWhenNoItemSatisfiedProvidedClause(): void
     {
         // Arrange

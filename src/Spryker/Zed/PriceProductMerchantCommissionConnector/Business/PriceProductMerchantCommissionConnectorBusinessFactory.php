@@ -21,9 +21,6 @@ use Spryker\Zed\PriceProductMerchantCommissionConnector\PriceProductMerchantComm
  */
 class PriceProductMerchantCommissionConnectorBusinessFactory extends AbstractBusinessFactory
 {
-    /**
-     * @return \Spryker\Zed\PriceProductMerchantCommissionConnector\Business\CollectorRule\ProductPriceCollectorRuleInterface
-     */
     public function createProductPriceCollectorRule(): ProductPriceCollectorRuleInterface
     {
         return new ProductPriceCollectorRule(
@@ -32,25 +29,16 @@ class PriceProductMerchantCommissionConnectorBusinessFactory extends AbstractBus
         );
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductMerchantCommissionConnector\Business\Converter\MoneyValueConverterInterface
-     */
     public function createMoneyValueConverter(): MoneyValueConverterInterface
     {
         return new MoneyValueConverter($this->getMoneyFacade());
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductMerchantCommissionConnector\Dependency\Facade\PriceProductMerchantCommissionConnectorToMoneyFacadeInterface
-     */
     public function getMoneyFacade(): PriceProductMerchantCommissionConnectorToMoneyFacadeInterface
     {
         return $this->getProvidedDependency(PriceProductMerchantCommissionConnectorDependencyProvider::FACADE_MONEY);
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductMerchantCommissionConnector\Dependency\Facade\PriceProductMerchantCommissionConnectorToRuleEngineFacadeInterface
-     */
     public function getRuleEngineFacade(): PriceProductMerchantCommissionConnectorToRuleEngineFacadeInterface
     {
         return $this->getProvidedDependency(PriceProductMerchantCommissionConnectorDependencyProvider::FACADE_RULE_ENGINE);

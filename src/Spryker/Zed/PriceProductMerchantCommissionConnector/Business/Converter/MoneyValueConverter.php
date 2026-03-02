@@ -40,19 +40,11 @@ class MoneyValueConverter implements MoneyValueConverterInterface
      */
     protected PriceProductMerchantCommissionConnectorToMoneyFacadeInterface $moneyFacade;
 
-    /**
-     * @param \Spryker\Zed\PriceProductMerchantCommissionConnector\Dependency\Facade\PriceProductMerchantCommissionConnectorToMoneyFacadeInterface $moneyFacade
-     */
     public function __construct(PriceProductMerchantCommissionConnectorToMoneyFacadeInterface $moneyFacade)
     {
         $this->moneyFacade = $moneyFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\RuleEngineClauseTransfer $ruleEngineClauseTransfer
-     *
-     * @return \Generated\Shared\Transfer\RuleEngineClauseTransfer
-     */
     public function convertDecimalToCent(RuleEngineClauseTransfer $ruleEngineClauseTransfer): RuleEngineClauseTransfer
     {
         if (
@@ -65,11 +57,6 @@ class MoneyValueConverter implements MoneyValueConverterInterface
         return $this->convertSinglePrice($ruleEngineClauseTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\RuleEngineClauseTransfer $ruleEngineClauseTransfer
-     *
-     * @return \Generated\Shared\Transfer\RuleEngineClauseTransfer
-     */
     protected function convertListPrice(RuleEngineClauseTransfer $ruleEngineClauseTransfer): RuleEngineClauseTransfer
     {
         $pricesExploded = explode(static::LIST_DELIMITER, $ruleEngineClauseTransfer->getValueOrFail());
@@ -82,11 +69,6 @@ class MoneyValueConverter implements MoneyValueConverterInterface
         return $ruleEngineClauseTransfer->setValue(implode(static::LIST_DELIMITER, $pricesConverted));
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\RuleEngineClauseTransfer $ruleEngineClauseTransfer
-     *
-     * @return \Generated\Shared\Transfer\RuleEngineClauseTransfer
-     */
     protected function convertSinglePrice(RuleEngineClauseTransfer $ruleEngineClauseTransfer): RuleEngineClauseTransfer
     {
         $priceConverted = $this->moneyFacade->convertDecimalToInteger(
@@ -96,11 +78,6 @@ class MoneyValueConverter implements MoneyValueConverterInterface
         return $ruleEngineClauseTransfer->setValue((string)$priceConverted);
     }
 
-    /**
-     * @param string $value
-     *
-     * @return float
-     */
     protected function formatValue(string $value): float
     {
         return (float)str_replace(',', '.', trim($value));

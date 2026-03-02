@@ -22,11 +22,6 @@ class PriceProductMerchantCommissionConnectorToMoneyFacadeBridge implements Pric
         $this->moneyFacade = $moneyFacade;
     }
 
-    /**
-     * @param float $value
-     *
-     * @return int
-     */
     public function convertDecimalToInteger(float $value): int
     {
         return $this->moneyFacade->convertDecimalToInteger($value);

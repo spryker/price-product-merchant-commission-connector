@@ -27,11 +27,6 @@ class PriceProductMerchantCommissionConnectorDependencyProvider extends Abstract
      */
     public const FACADE_RULE_ENGINE = 'FACADE_RULE_ENGINE';
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     public function provideBusinessLayerDependencies(Container $container): Container
     {
         $container = parent::provideBusinessLayerDependencies($container);
@@ -41,11 +36,6 @@ class PriceProductMerchantCommissionConnectorDependencyProvider extends Abstract
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addMoneyFacade(Container $container): Container
     {
         $container->set(static::FACADE_MONEY, function (Container $container) {
@@ -57,11 +47,6 @@ class PriceProductMerchantCommissionConnectorDependencyProvider extends Abstract
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addRuleEngineFacade(Container $container): Container
     {
         $container->set(static::FACADE_RULE_ENGINE, function (Container $container) {

@@ -25,10 +25,6 @@ class ProductPriceCollectorRule implements ProductPriceCollectorRuleInterface
      */
     protected PriceProductMerchantCommissionConnectorToRuleEngineFacadeInterface $ruleEngineFacade;
 
-    /**
-     * @param \Spryker\Zed\PriceProductMerchantCommissionConnector\Business\Converter\MoneyValueConverterInterface $moneyValueConverter
-     * @param \Spryker\Zed\PriceProductMerchantCommissionConnector\Dependency\Facade\PriceProductMerchantCommissionConnectorToRuleEngineFacadeInterface $ruleEngineFacade
-     */
     public function __construct(
         MoneyValueConverterInterface $moneyValueConverter,
         PriceProductMerchantCommissionConnectorToRuleEngineFacadeInterface $ruleEngineFacade
@@ -65,11 +61,6 @@ class ProductPriceCollectorRule implements ProductPriceCollectorRuleInterface
         return $collectedItems;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantCommissionCalculationRequestItemTransfer $merchantCommissionCalculationRequestItemTransfer
-     *
-     * @return int
-     */
     protected function getUnitPrice(MerchantCommissionCalculationRequestItemTransfer $merchantCommissionCalculationRequestItemTransfer): int
     {
         return (int)($merchantCommissionCalculationRequestItemTransfer->getSumPriceOrFail() / $merchantCommissionCalculationRequestItemTransfer->getQuantityOrFail());
